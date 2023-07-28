@@ -1,63 +1,452 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+/*google fonts file*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    min-height: 100vh;
+    background-color: rgba(211, 92, 92, 0.813);
+    background-position: fixed;
+}
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,1,1,);
+    padding: 0px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+header.navbar .logo{
+    font-weight: bolder;
+    font-size: 25px;
+    color: black;
+    
+}
+header .navbar ul{
+    list-style: none;
+}
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+}
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 200px;
+    background: rgb(223, 127, 218);
+    display: none;
+    
+}
+header .navbar ul li ul li{
+    width: 100%;
+    border-top: 1px solid rgba(0,0,1,1,);
+}
+header .navbar ul li ul li ul{
+    left: 200px;
+    top: 0;
+    font-size: 20px;
+}
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+    display: initial;
+}
+#menu-bar{
+    display: none;
+}
+header label{
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
 }
 
-header {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
+
+
+@media(max-width:991px){
+    header{
+        padding: 20px;
+    }
+    header{
+        display: initial;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100px; left: 0; right: 0;
+        background: rgb(208,112,157);
+        border-top: 1px solid rgba(0,0,1,1,);
+        display: none;
+    }
+    header .navbar ul li{
+        width: 100%;
+    }
+    header .navbar ul li ul{
+        position: relative;
+        width: 100px;
+    }
+    #menu-bar:checked ~ .navbar{
+        display: initial;
+    }
 }
 
-main {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  padding: 2rem;
+.user{
+    cursor: pointer;
+    color: aqua;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.user a{
+    text-decoration:none;
+    color:white;
+    background-color: rgb(42, 153, 153);
+    border-radius: 10px;
+    padding: 10px 20px;
+    
+}
+.user a:hover{
+    background-color: black;
+    color: aquamarine;
+    font-weight: bolder;
 }
 
-.product-list {
-  width: 70%;
+.user i{
+    font-size: 20px;
+    margin-right: 10px;
+    padding: 0px 14px;
+}
+.heropage{
+    position: absolute;
+    color: white;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+.inside-heropage{
+    line-height: 12;
+}
+.inside-heropage h1{
+    font-size: 40px;
+}
+.inside-heropage p{
+    font-size: 17px;
+}
+span{
+    color: teal;
+    font-weight: bold;
+}
+.line1{
+    height: 2px;
+    color: rgb(18,241,241);
+    width: 12%;
+    margin-left: 0px;
+    margin-top: 0px;
+    position: absolute;
+}
+.poster{
+    margin-top: 130px;
+    margin-right: 150px;
+}
+.poster img{
+    height: 320px;
+    float: right;
+    border-radius: 10px;
+}
+.but1{
+    margin-top: 30px;
+}
+.but1 a{
+    text-decoration: none;
+    color: rgb(232, 232, 232);
+    padding: 10px 25px;
+    background: teal;
+    border-radius: 20px;
+}
+.but1 a :hover{
+    background-color: black;
+    color: teal;
+}
+.but1 i{
+    color: black;
+    padding: 0px 10px;
+}
+.latest-movies{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.781);
+    margin-top: 325px;
+    padding: 0px 20px;
+}
+.latest-movies h1{
+    font-size: 25px;
+    color: teal;
+}
+.latest-container{
+    padding: 0px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+.latest-insider img{
+    height: 150px;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 500ms ease-in-out ;
+}
+.latest-insider img:hover {
+    transform: scale(1,1.5);
+}
+.heading1{
+    color: white;
+    line-height: 1.0;
+}
+.heading1 h4{
+    font-size: 19px;
+}
+.heading1 h6{
+    font-size: 11px;
+}
+.btn2{
+    margin-top: -20px;
+    margin-left: 95px;
+}
+.btn2 a{
+    text-decoration: none;
+    font-size: 13px;
+    background:teal ;
+    padding: 8px 7px;
+    color:white;
+    border-radius: 10%;
+    
 }
 
-.product {
-  border: 1px solid #ddd;
-  padding: 1rem;
-  margin-bottom: 1rem;
+2 PAGE CSS:
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color:rgba(38, 199, 10, 0.826) ;
+    background-position: fixed;
+}
+.Tollwood-Movies{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.781) ;
+    margin-top: 50px;
+    padding: 0px 20px;
+}
+.Tollwood-Movies h1{
+    font-size: 25px;
+    color: blue;
+}
+.Tollwood-container{
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+.Tollwood-insider img{
+    width: 200px;
+    height: 280px;
+    padding: 5px;
+    cursor:pointer;
+    transition: all 500ms ease-in-out;
+}
+.Tollwood-insider img:hover{
+    transform: scale(1.1);
+}
+.heading2{
+    color: white;
+    line-height: 1.5;
+}
+.heading2 h4{
+    font-size: 15px;
+}
+.btu1{
+    margin-top: -10px;
+    margin-left: 120px;
+}
+.btu1 a{
+    text-decoration: none;
+    font-size: 13px;
+    background: teal;
+    padding: 5px 9px;
+    color: white;
+    border-radius: 10%;
+}
+.line2{
+    position: absolute;
+    width: 100%;
+    margin-top: 450px;
+    padding: 0px 20px;
+}
+.line2-container{
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+.line2-insider img{
+    width: 200px;
+    height: 280px;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+}
+.line2-insider img:hover{
+    transform: scale(1.1);
+}
+.head1{
+    color: white;
+    line-height: 1.5;
+}
+.head1 h4{
+    font-size: 15px;
+}
+.btu2{
+    margin-top: -10px;
+    margin-left: 120px;
+}
+.btu2 a{
+    text-decoration: none;
+    font-size: 13px;
+    background: teal;
+    padding: 5px 9px;
+    color:white;
+    border-radius: 10%;
 }
 
-.cart {
-  width: 25%;
-  border: 1px solid #ddd;
-  padding: 1rem;
+Review page css:
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
 }
-
-.cart h2 {
-  margin-bottom: 1rem;
+html{
+    scroll-behavior: smooth;
 }
-
-.cart ul {
-  list-style: none;
-  padding: 0;
+body{
+    background-color:rgba(38, 199, 10, 0.826) ;
+    background-position: fixed;
 }
-
-.cart li {
-  margin-bottom: 0.5rem;
+.Tollwood-Movies{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.781) ;
+    margin-top: 50px;
+    padding: 0px 20px;
 }
-
-button {
-  background-color: #3498db;
-  color: #fff;
-  font-size: 16px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.Tollwood-Movies h1{
+    font-size: 25px;
+    color: blue;
 }
-
-button:hover {
-  background-color: #2980b9;
+.Tollwood-container{
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+.Tollwood-insider img{
+    width: 200px;
+    height: 280px;
+    padding: 5px;
+    cursor:pointer;
+    transition: all 500ms ease-in-out;
+}
+.Tollwood-insider img:hover{
+    transform: scale(1.1);
+}
+.heading2{
+    color: white;
+    line-height: 1.5;
+}
+.heading2 h4{
+    font-size: 15px;
+}
+.btu1{
+    margin-top: -10px;
+    margin-left: 120px;
+}
+.btu1 a{
+    text-decoration: none;
+    font-size: 13px;
+    background: teal;
+    padding: 5px 9px;
+    color: white;
+    border-radius: 10%;
+}
+.line2{
+    position: absolute;
+    width: 100%;
+    margin-top: 450px;
+    padding: 0px 20px;
+}
+.line2-container{
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+.line2-insider img{
+    width: 200px;
+    height: 280px;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+}
+.line2-insider img:hover{
+    transform: scale(1.1);
+}
+.head1{
+    color: white;
+    line-height: 1.5;
+}
+.head1 h4{
+    font-size: 15px;
+}
+.btu2{
+    margin-top: -10px;
+    margin-left: 120px;
+}
+.btu2 a{
+    text-decoration: none;
+    font-size: 13px;
+    background: teal;
+    padding: 5px 9px;
+    color:white;
+    border-radius: 10%;
 }
