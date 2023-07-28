@@ -1,25 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Project information -->
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.example</groupId>
-    <artifactId>backend-development</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>my-web-app</artifactId>
+    <version>1.0.0</version>
+    <packaging>war</packaging>
 
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+    <!-- Project dependencies -->
+    <dependencies>
+        <!-- Add your project dependencies here -->
+        <!-- Example: Servlet API -->
+        <!--
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        -->
+    </dependencies>
 
-    <modules>
-        <module>server</module>
-        <module>ticket-booking</module>
-    </modules>
-         
-    <build>     
+    <!-- Maven plugins -->
+    <build>
         <plugins>
-            <!-- Define the maven-compiler-plugin to compile Java source code -->
+            <!-- Maven Compiler Plugin -->
+            <!-- Configures the source and target Java versions -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -29,10 +38,19 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
+            <!-- Maven War Plugin -->
+            <!-- Configures the build to create a WAR file -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+                <configuration>
+                    <!-- Configure the WAR file name (optional) -->
+                    <!-- <warName>my-web-app</warName> -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
-    <dependencies>
-        <!-- Add dependencies for Flask and any other libraries you may use -->
-    </dependencies>
 </project>
