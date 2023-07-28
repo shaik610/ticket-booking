@@ -1,56 +1,57 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <!-- Project information -->
+    
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>my-web-app</artifactId>
-    <version>1.0.0</version>
-    <packaging>war</packaging>
+    <artifactId>backend-flask</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-    <!-- Project dependencies -->
-    <dependencies>
-        <!-- Add your project dependencies here -->
-        <!-- Example: Servlet API -->
-        <!--
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        -->
-    </dependencies>
+    <properties>
+        <python.version>3.8</python.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
-    <!-- Maven plugins -->
     <build>
         <plugins>
             <!-- Maven Compiler Plugin -->
-            <!-- Configures the source and target Java versions -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
 
-            <!-- Maven War Plugin -->
-            <!-- Configures the build to create a WAR file -->
+            <!-- Maven Exec Plugin to run Flask server -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.3.2</version>
-                <configuration>
-                    <!-- Configure the WAR file name (optional) -->
-                    <!-- <warName>my-web-app</warName> -->
-                </configuration>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>run-flask</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>python</executable>
+                            <arguments>
+                                <argument>app.py</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
 
+    <dependencies>
+        <!-- Add Flask and other Python dependencies here -->
+        <!-- You can manage Python dependencies using requirements.txt or Pipenv -->
+    </dependencies>
 </project>
