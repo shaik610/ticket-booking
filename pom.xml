@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>frontend-development</artifactId>
+    <artifactId>backend-development</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -12,49 +12,27 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-    <build>
+    <modules>
+        <module>server</module>
+        <module>ticket-booking</module>
+    </modules>
+         
+    <build>     
         <plugins>
-            <!-- Define the frontend-maven-plugin to build and package the frontend code -->
+            <!-- Define the maven-compiler-plugin to compile Java source code -->
             <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <version>1.11.0</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
-                    <!-- Set the source directory for frontend code (e.g., HTML, CSS, JS) -->
-                    <workingDirectory>src/main/frontend</workingDirectory>
-                    <!-- Define the commands to build and package the frontend code -->
-                    <installDirectory>target/frontend</installDirectory>
-                    <nodeVersion>v14.17.0</nodeVersion>
-                    <npmVersion>7.15.1</npmVersion>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
-                <executions>
-                    <!-- Run npm install and npm run build before packaging the application -->
-                    <execution>
-                        <id>install node and npm</id>
-                        <goals>
-                            <goal>install-node-and-npm</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>npm install</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>install</arguments>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>npm run build</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>run build</arguments>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
+
+    <dependencies>
+        <!-- Add dependencies for Flask and any other libraries you may use -->
+    </dependencies>
 </project>
